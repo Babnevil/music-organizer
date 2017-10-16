@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * A class to hold details of audio tracks.
@@ -168,6 +169,21 @@ public class MusicOrganizer
         // Put all thetracks into the organizer.
         for(Track track : tempTracks) {
             addTrack(track);
+        }
+    }
+    public void randomPlaylist()
+    {
+        //create a new playlist to shuffle
+        ArrayList<Track> randomTracks = new ArrayList<>(tracks);
+        Collections.shuffle(randomTracks);
+        for (Track track : randomTracks) {
+            //need to grab index of current track and store as int to play
+            int currentTrack = randomTracks.indexOf(track);
+            playTrack(currentTrack);
+            /** However, I was unable to find a way to get the player to wait
+               between songs, so the result is all of the tracks playing
+               at once.
+            */
         }
     }
 }
