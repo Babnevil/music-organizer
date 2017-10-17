@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Collections;
 
 /**
@@ -7,6 +8,16 @@ import java.util.Collections;
  * 
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29
+=======
+import java.util.Random;
+/**
+ * A class to hold details of audio tracks.
+ * Individual tracks may be played.
+ * added a new method to simulate a shuffle function 
+ * 
+ * @author Matthew Schilling
+ * @version 10.16.2017
+>>>>>>> randomsong
  */
 public class MusicOrganizer
 {
@@ -16,6 +27,11 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
+<<<<<<< HEAD
+=======
+    // A boolean to stop a currently playing song for the shuffle method
+    private boolean hasTrack = false;
+>>>>>>> randomsong
 
     /**
      * Create a MusicOrganizer
@@ -58,6 +74,10 @@ public class MusicOrganizer
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+<<<<<<< HEAD
+=======
+            hasTrack = true;    //lets us check if anything is playing
+>>>>>>> randomsong
         }
     }
     
@@ -171,6 +191,7 @@ public class MusicOrganizer
             addTrack(track);
         }
     }
+<<<<<<< HEAD
     public void randomPlaylist()
     {
         //create a new playlist to shuffle
@@ -185,5 +206,19 @@ public class MusicOrganizer
                at once.
             */
         }
+=======
+    
+    public void randomSong() {
+        //stop the player if a song is playing
+        if(hasTrack == true)
+        stopPlaying();
+        //need the library size to have the RNG select from the right range
+        int select = tracks.size();
+        Random shuffle = new Random();
+        //pick a number and play a song at that index
+        int roll = shuffle.nextInt(select);
+        playTrack(roll);
+        
+>>>>>>> randomsong
     }
 }
